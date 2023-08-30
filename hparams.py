@@ -5,11 +5,18 @@ from text import symbols
 def create_hparams(hparams_string=None, verbose=False):
     """Create model hyperparameters. Parse nondefault from given string."""
 
-    hparams = dict(
+    class dotdict(dict):
+        """dot.notation access to dictionary attributes"""
+        """This is fix, substitute for obsolete tf.contrib.training.HParams class"""
+        __getattr__ = dict.get
+        __setattr__ = dict.__setitem__
+        __delattr__ = dict.__delitem__
+
+    hparams = dotdict(
         ################################
         # Experiment Parameters        #
         ################################
-        epochs=500,
+        epochs=5,
         iters_per_checkpoint=1000,
         seed=1234,
         dynamic_loss_scaling=True,
