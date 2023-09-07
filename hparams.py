@@ -16,7 +16,7 @@ def create_hparams(hparams_string=None, verbose=False):
         ################################
         # Experiment Parameters        #
         ################################
-        epochs=5,
+        epochs=20,
         iters_per_checkpoint=1000,
         seed=1234,
         dynamic_loss_scaling=True,
@@ -91,7 +91,7 @@ def create_hparams(hparams_string=None, verbose=False):
         anneal = 0,                             #number of iterations to anneal lr from 0 to 'learning_rate'
         weight_decay=1e-6,
         grad_clip_thresh=1.0,
-        batch_size=64,
+        batch_size=10,
         mask_padding=True,  # set model's padded outputs to padded values
 
         ###############################
